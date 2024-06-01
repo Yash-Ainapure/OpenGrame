@@ -1,5 +1,6 @@
 import GridPostList from "@/components/shared/GridPostList";
 import Loader from "@/components/shared/Loader";
+import UserCard from "@/components/shared/UserCard";
 import { Input } from "@/components/ui/input";
 import DropdownSelect from "@/components/ui/select";
 import useDebounce from "@/hooks/useDebounce";
@@ -23,7 +24,7 @@ const SearchResults = ({
   if (isSearchFetching) {
     return <Loader />;
   } else if (searchedPosts && searchedPosts.documents.length > 0) {
-    return <GridPostList posts={searchedPosts.documents} />;
+     return <GridPostList posts={searchedPosts.documents} />;
   } else {
     return (
       <p className="w-full mt-10 text-center text-light-4">No results found</p>
@@ -44,7 +45,7 @@ const Explore = () => {
     if (inView && !searchValue) {
       fetchNextPage();
     }
-  }, [inView, searchValue]);
+  }, [inView, searchValue,fetchNextPage]);
 
   if (!posts)
     return (
